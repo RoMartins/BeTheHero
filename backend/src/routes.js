@@ -5,7 +5,6 @@ const OngController = require('./controllers/OngController')
 const IncidentController = require('./controllers/IncidentController')
 const ProfileController = require('./controllers/ProfileController')
 const SessionController = require('./controllers/SessionController')
-const Validator = require('./validators/validator')
 const {celebrate, Joi , Segments} = require('celebrate');
   
 
@@ -16,7 +15,7 @@ routes.post('/ongs', celebrate({
         name: Joi.string().required() ,
         email: Joi.string().required().email() ,
         whatsapp: Joi.string().required().min(10).max(11), 
-        city : Joi.string().required,
+        city : Joi.string().required(),
         uf : Joi.string().required().length(2)
         })
     }) , OngController.create)
